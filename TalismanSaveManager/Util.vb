@@ -16,7 +16,9 @@ Public Class Util
 
     Private Shared myWindow As Window
 
-    Public Shared Function initInit() As Boolean
+    Public Shared Function init(iWindow As Window) As String
+        myWindow = iWindow
+
         Dim appData As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
         pathTalismanDisplay = "%APPDATA%\Nomad Games\Talisman\saved_game\"
         pathTalisman = appData & "\Nomad Games\Talisman\saved_game\"
@@ -29,7 +31,7 @@ Public Class Util
         OtherSaveFileTemplate = pathSaves & "{0}#{1}#{2}"
 
         If Not Directory.Exists(pathTalisman) Then
-            Return False
+            Return "Talisman Save Folder not found." & vbCrLf & "Launch the game at least once first."
         End If
 
         If Not Directory.Exists(pathRoot) Then
@@ -38,16 +40,6 @@ Public Class Util
 
         If Not Directory.Exists(pathSaves) Then
             Directory.CreateDirectory(pathSaves)
-        End If
-
-        Return True
-    End Function
-
-    Public Shared Function init(iWindow As Window) As String
-        myWindow = iWindow
-
-        If Not Directory.Exists(pathTalisman) Then
-            Return "Talisman Save Folder not found." & vbCrLf & "Launch the game at least once first."
         End If
 
         Database.initDB()
@@ -60,9 +52,9 @@ Public Class Util
     End Sub
 
     Public Shared Function GetAssemblyRoot() As String
-        If Directory.Exists(pathRoot) Then
-            Return pathRoot
-        End If
+        'If Directory.Exists(pathRoot) Then
+        '    Return pathRoot
+        'End If
         Return Path.GetTempPath()
     End Function
 
@@ -70,13 +62,6 @@ Public Class Util
         'MessageBox.Show(myWindow, iMessage)
         CType(myWindow, MainWindow).showMessage(iMessage, iButton)
     End Sub
-
-    'Public Shared Sub writeLog(iMsg As String, isNew As Boolean)
-    '    Dim file As System.IO.StreamWriter
-    '    file = My.Computer.FileSystem.OpenTextFileWriter("c:\temp\log.txt", Not isNew)
-    '    file.WriteLine(iMsg)
-    '    file.Close()
-    'End Sub
 
 #Region "File Checks"
 

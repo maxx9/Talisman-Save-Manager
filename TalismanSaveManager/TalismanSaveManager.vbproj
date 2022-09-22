@@ -133,7 +133,6 @@
     <Compile Include="db_sqlite\KVP.vb" />
     <Compile Include="db_sqlite\Player.vb" />
     <Compile Include="db_sqlite\Steam.vb" />
-    <Compile Include="EmbeddedAssembly.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -209,12 +208,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="System.Data.SQLite.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="msvcr120.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

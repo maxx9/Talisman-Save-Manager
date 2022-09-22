@@ -4,9 +4,7 @@
 
     Public Sub New()
         InitializeComponent()
-
         Title = String.Format("{0} ({1}_{2})", Util.AppTitle, "beta", "1.0")
-
         init()
     End Sub
 
