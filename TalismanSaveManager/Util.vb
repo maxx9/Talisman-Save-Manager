@@ -51,13 +51,6 @@ Public Class Util
         Database.disposeDB()
     End Sub
 
-    Public Shared Function GetAssemblyRoot() As String
-        'If Directory.Exists(pathRoot) Then
-        '    Return pathRoot
-        'End If
-        Return Path.GetTempPath()
-    End Function
-
     Public Shared Sub displayMessage(iMessage As String, iButton As String)
         'MessageBox.Show(myWindow, iMessage)
         CType(myWindow, MainWindow).showMessage(iMessage, iButton)
@@ -165,7 +158,6 @@ Public Class Util
         Else
             Return "No current save file exists in save folder for this user."
         End If
-
 
         Return ""
     End Function

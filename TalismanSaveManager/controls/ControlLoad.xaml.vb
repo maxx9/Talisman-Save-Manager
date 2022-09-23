@@ -9,7 +9,6 @@ Public Class ControlLoad
         combobox_databind()
     End Sub
 
-
 #Region "ComboBox"
     Private Sub combobox_databind()
         _CurrentSteamId = KVP.db_SELECT("CurrentSteamId", "")(0).Value
@@ -112,6 +111,5 @@ Public Class ControlLoad
         tblCurrent_databind()
     End Sub
 #End Region
-
 
 End Class
