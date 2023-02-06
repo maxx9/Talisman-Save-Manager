@@ -85,11 +85,13 @@ Public Class Util
         Dim returnVal As String = ""
         Dim _split1 As String() = getFileNamePart(iFileName, "Players").Split("-")
         For Each _U As String In _split1
-            Dim _Ps As List(Of Player) = Player.db_SELECT(CInt(_U), "")
-            If _Ps.Count > 0 Then
-                returnVal &= If(returnVal = "", "", ", ") & _Ps(0).Name
-            Else
-                returnVal &= If(returnVal = "", "", ", ") & "???"
+            If IsNumeric(_U) Then
+                Dim _Ps As List(Of Player) = Player.db_SELECT(CInt(_U), "")
+                If _Ps.Count > 0 Then
+                    returnVal &= If(returnVal = "", "", ", ") & _Ps(0).Name
+                Else
+                    returnVal &= If(returnVal = "", "", ", ") & "???"
+                End If
             End If
         Next
         Return returnVal

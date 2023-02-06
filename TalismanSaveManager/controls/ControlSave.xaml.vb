@@ -58,7 +58,7 @@ Public Class ControlSave
 
             Dim matchedFile As String = Util.matchSaveFile(_CurrentSteamId, _CurrentSave.Length, _CurrentSave.LastWriteTime)
             If matchedFile = "" Then
-                tblCurrentFileNote.Text = "No match found in existing save files. Save not saved."
+                tblCurrentFileNote.Text = String.Format("No match found in existing save files.{0}This Save has not been saved yet.", vbCrLf)
             Else
                 Dim _Players As String = Util.getPlayersFromFileName(matchedFile)
                 tblCurrentFileNote.Text = String.Format("Matches existing saved save with players:{0}{1}", vbCrLf, _Players)
@@ -94,11 +94,15 @@ Public Class ControlSave
             End If
         Next
 
-        Dim iError As String = Util.trySaveSave(_CurrentSteamId, oPlayers)
-        If iError <> "" Then
-            Util.displayMessage(iError, "Sorry")
+        If oPlayers = "" Then
+            Util.displayMessage("Please select at least one Player.", "Sorry")
         Else
-            Util.displayMessage("Save Saved.", "Cool")
+            Dim iError As String = Util.trySaveSave(_CurrentSteamId, oPlayers)
+            If iError <> "" Then
+                Util.displayMessage(iError, "Sorry")
+            Else
+                Util.displayMessage("Save Saved.", "Cool")
+            End If
         End If
 
         tblCurrent_databind()

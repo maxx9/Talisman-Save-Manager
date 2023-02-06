@@ -4,16 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="500" d:DesignWidth="400">
+             d:DesignHeight="500" d:DesignWidth="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10" />
             <RowDefinition Height="20" />
-            <RowDefinition Height="60" />
-            <RowDefinition Height="90" />
-            <RowDefinition Height="90" />
-            <RowDefinition Height="90" />
-            <RowDefinition Height="40" />
+            <RowDefinition Height="300" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="30" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -29,26 +26,26 @@
 
         <TextBlock Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             This is a small program that assists in keeping multiple online saves for Talisman: Digital Edition because we all know that their current save system is hot garbage.
+            <LineBreak/><LineBreak/>
+            First go to [Setup]. Add you steam id here. You can copy if out of your current talisman save folder (see path below). Its the bunch of numbers in the Cloud and Local file saves. 
+            Also create your list of player names that you will be playing with. More players can be added later. But you can only delete players if they have no associated saves.
+            <LineBreak/><LineBreak/>
+            To save a save, go to [Save]. Make sure the correct user is selected. You will see file info about the current active save file and if it matches any saved saves.
+            You can then select which players are participating in the active save and save the save to the saves if the save has not been saved before.
+            <LineBreak/><LineBreak/>
+            To load a save, go to [Load].  Make sure the correct user is selected. You will see file info about the current active save file and if it matches any saved saves.
+            You can then select which save you want to load back into the active save (will overwrite what's there). You can also delete saved saves that you don't want to keep anymore with right click.
         </TextBlock>
 
         <TextBlock Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            First go to [Setup]. Add you steam id here. You can copy if out of your current talisman save folder (see path below). Its just a bunch of numbers. 
-            Also create your list of player names that you will be playing with. More can be added later. But you can only delete if there are no associated saves.
+            Default Talisman Save Location:
+            <LineBreak/>
+            <Hyperlink Name="hpPath" Click="hpPath_Click">
+                <TextBlock Name="tbPath"/>
+            </Hyperlink>
         </TextBlock>
 
         <TextBlock Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            To save a save, go to [Save]. Make sure the correct user is selected. You will see file info about the current active save file and if it matches any saved saves.
-            You can then select which players are participating in the active save and save the save to the saves if the save has not been saved before.
-        </TextBlock>
-
-        <TextBlock Grid.Row="5" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-            To load a save, go to [Load].  Make sure the correct user is selected. You will see file info about the current active save file and if it matches any saved saves.
-            You can then select which save you want to load back into the active save (will overwrite what's there). You can also delete saved saves that you don't want to keep anymore.
-        </TextBlock>
-
-        <TextBlock Grid.Row="6" Grid.Column="1" x:Name="tblPath" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
-
-        <TextBlock Grid.Row="7" Grid.Column="1" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
             Thank
         </TextBlock>
 

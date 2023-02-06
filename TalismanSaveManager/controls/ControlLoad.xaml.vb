@@ -56,7 +56,7 @@ Public Class ControlLoad
 
             Dim matchedFile As String = Util.matchSaveFile(_CurrentSteamId, _CurrentSave.Length, _CurrentSave.LastWriteTime)
             If matchedFile = "" Then
-                tblCurrentFileNote.Text = "No match found in existing save files. Save not saved."
+                tblCurrentFileNote.Text = String.Format("No match found in existing save files.{0}This Save has not been saved yet.", vbCrLf)
                 tblCurrentFileNote.Foreground = Brushes.Red
             Else
                 Dim _Players As String = Util.getPlayersFromFileName(matchedFile)

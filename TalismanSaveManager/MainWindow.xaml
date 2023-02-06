@@ -1,7 +1,7 @@
 ﻿<Window x:Class="MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="" Height="500" Width="400" ResizeMode="NoResize" Closing="Window_Closing" Icon="Talisman.ico">
+    Title="" Height="500" Width="500" ResizeMode="NoResize" Closing="Window_Closing" Icon="Talisman.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25" />
